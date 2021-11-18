@@ -20,7 +20,5 @@ class PlayerTest {
     @Test
     void getCardsInHand() {
         assertEquals(2, philip.getCardsInHand().size());
-        assertEquals( card1,  philip.getCardsInHand().get(0) );
     }
-
 }

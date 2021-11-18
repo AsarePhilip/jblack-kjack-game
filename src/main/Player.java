@@ -19,6 +19,10 @@ public class Player {
         cardsInHand.add(card);
     }
 
+    public String getPlayerName() {
+        return playerName;
+    }
+
     public  void hit(){
         System.out.println("Hitting");
     }
@@ -35,8 +39,5 @@ public class Player {
         return  false;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
 
 }
