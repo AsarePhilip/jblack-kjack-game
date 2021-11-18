@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private List<Card> cardsInHand;
-    private  String playerName;
+    private final List<Card> cardsInHand;
+    private  final String playerName;
 
 
     public Player(String playerName) {
@@ -37,6 +37,10 @@ public class Player {
 
     public boolean isWinner(){
         return  false;
+    }
+
+    public int getTotalValueOfCards() {
+        return cardsInHand.stream().mapToInt(m -> m.getCardValue().getValue()).sum();
     }
 
 
