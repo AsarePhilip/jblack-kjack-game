@@ -1,7 +1,9 @@
 public class Test  {
 
     public static void main(String[] args) {
-        System.out.println("hello00");
+        Card c = new Card(Suit.DIAMONDS, CardValues.TEN);
+        System.out.println(c.getCardValue().toString());
+
     }
 
 }
