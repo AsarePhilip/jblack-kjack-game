@@ -9,15 +9,17 @@ import java.util.List;
 public class Player {
     // Fields
     private final List<Card> cardsInHand;
-    private  final String playerName;
+    private final String playerName;
     private PlayerStatus playerStatus;
-    private final int gameScore;
+    private final int hitScore;
+    private final int winnerScore;
 
     // Constructors
     public Player(String playerName) {
         cardsInHand = new ArrayList<>();
         this.playerName = playerName;
-        gameScore = 21;
+        hitScore =  17;
+        winnerScore = 21;
     }
 
     // Getters
@@ -34,45 +36,28 @@ public class Player {
     }
 
     // Setters
-
-
-    public  void setPlayerStatus(PlayerStatus status){
+    public void setPlayerStatus(PlayerStatus status) {
         this.playerStatus = status;
     }
 
     // Methods
-    public void addCard(Card card){
+    public void addCard(Card card) {
         cardsInHand.add(card);
     }
 
-//    public  void hit(){
-//        System.out.println("Hitting");
-//    }
-//
-//    public  void stick(){
-//        System.out.println("Sticking");
-//    }
-//
-//    public boolean isBusted(){
-//        return  false;
-//    }
-//
-//    public boolean isWinner(){
-//        return  false;
-//    }
-
     public boolean canDeal() {
-        return  playerStatus == PlayerStatus.HIT;
+        changePlayerStatus();
+        return playerStatus == PlayerStatus.HIT;
     }
 
-    public void changePlayerStatus() {
-        if(getPlayerScore() < 17){
+   public void changePlayerStatus() {
+        if (getPlayerScore() < hitScore) {
             this.playerStatus = PlayerStatus.HIT;
-        }else if( getPlayerScore() >= 17 && getPlayerScore() <= 20){
+        } else if (getPlayerScore() >= hitScore && getPlayerScore() < winnerScore) {
             this.playerStatus = PlayerStatus.STICK;
-        }else if( getPlayerScore() == 21 ){
+        } else if (getPlayerScore() == winnerScore) {
             this.playerStatus = PlayerStatus.WIN;
-        }else{
+        } else {
             this.playerStatus = PlayerStatus.GO_BUST;
         }
     }

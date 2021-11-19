@@ -12,7 +12,7 @@ public class Game {
     private final List<Card> deckOfCards;
     private final List<Player> players;
     private final int initNumOfCards = 2;
-    private final int targetScore = 17;
+//    private final int targetScore = 17;
 
     public Game(List<Player> players) {
         deckOfCards = new ArrayList<>();
@@ -68,5 +68,15 @@ public class Game {
         }
     }
 
+
+    public boolean gameStatus(){
+        if( players.stream().allMatch( p -> p.getPlayerStatus().equals(PlayerStatus.STICK)) ){
+            return true;
+        }else if(players.stream().anyMatch(p -> p.getPlayerStatus().equals(PlayerStatus.WIN))){
+            return false;
+        }else if ( players.stream().filter( p -> p.getPlayerStatus().equals(PlayerStatus.GO_BUST))  ){
+            
+        }
+    }
 
 }
