@@ -1,3 +1,8 @@
+package model;
+
+import enums.CardValues;
+import enums.Suit;
+
 public class Card {
     private Suit suit;
     private CardValues cardValue;
@@ -17,7 +22,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "model.Card{" +
                 "suit=" + suit +
                 ", cardValue=" + cardValue +
                 '}';

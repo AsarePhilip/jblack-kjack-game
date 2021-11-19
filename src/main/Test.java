@@ -1,7 +1,7 @@
-import java.util.Collection;
-import java.util.Collections;
+import model.Game;
+import model.Player;
+
 import java.util.List;
-import java.util.Random;
 
 public class Test {
 
@@ -24,9 +24,9 @@ public class Test {
         game.start();
         game.printCards();
 
-        System.out.println(game.getPlayers().get(0).getTotalValueOfCards());
-        System.out.println(game.getPlayers().get(1).getTotalValueOfCards());
-        System.out.println(game.getPlayers().get(2).getTotalValueOfCards());
+        System.out.println(game.getPlayers().get(0).getPlayerScore());
+        System.out.println(game.getPlayers().get(1).getPlayerScore());
+        System.out.println(game.getPlayers().get(2).getPlayerScore());
 
     }
 

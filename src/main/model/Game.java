@@ -1,26 +1,29 @@
+package model;
+
+import enums.CardValues;
+import enums.PlayerStatus;
+import enums.Suit;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
     private final List<Card> deckOfCards;
-
-    public List<Player> getPlayers() {
-        return players;
-    }
-
     private final List<Player> players;
-    private final int cardsCount;
+    private final int initNumOfCards = 2;
+    private final int targetScore = 17;
 
     public Game(List<Player> players) {
         deckOfCards = new ArrayList<>();
         this.players = players;
-        cardsCount = 2;
         arrangeCards();
     }
 
 
+    public List<Player> getPlayers() {
+        return players;
+    }
     public List<Card> getDeckOfCards(){
         return  deckOfCards;
     }
@@ -30,7 +33,9 @@ public class Game {
         System.out.println("Starting game");
 
         for (var player : players) {
-            for (int i = 0; i < cardsCount; i++) {
+            player.setPlayerStatus(PlayerStatus.HIT);
+
+            for (int i = 0; i < initNumOfCards; i++) {
                deal(player);
             }
         }
@@ -49,9 +54,11 @@ public class Game {
     }
 
     public void deal(Player player) {
-        var currentCard = deckOfCards.get(deckOfCards.size() - 1);
-        player.addCard(currentCard);
-        deckOfCards.remove(currentCard);
+        if (player.canDeal()) {
+            var currentCard = deckOfCards.get(deckOfCards.size() - 1);
+            player.addCard(currentCard);
+            deckOfCards.remove(currentCard);
+        }
     }
 
     public void printCards() {
