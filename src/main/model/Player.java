@@ -65,4 +65,17 @@ public class Player {
     public int getPlayerScore() {
         return cardsInHand.stream().mapToInt(m -> m.getCardValue().getValue()).sum();
     }
+
+    @Override
+    public String toString() {
+
+        return "Player{" +
+                "cardsInHand=" + cardsInHand +
+                ", playerName='" + playerName + '\'' +
+                ", playerStatus=" + playerStatus +
+                ", hitScore=" + hitScore +
+                ", winnerScore=" + winnerScore +
+                ", playerScore=" + getPlayerScore() +
+                '}';
+    }
 }

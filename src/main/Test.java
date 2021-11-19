@@ -9,20 +9,14 @@ public class Test {
         var game =
                 new Game(List.of(new Player("Prince"),
                         new Player("Priscilla"),
-                        new Player("Philip"),
-                        new Player("Richard"),
-                        new Player("Seth")
+                        new Player("Philip")
                 ));
+        game.start();
 
 //        System.out.println("Before Shuffling");
 //        game.printCards();
 
 //        System.out.println("\nAfter Shuffling");
-        game.shuffleCards();
-        game.printCards();
-
-        game.start();
-        game.printCards();
 
         System.out.println(game.getPlayers().get(0).getPlayerScore());
         System.out.println(game.getPlayers().get(1).getPlayerScore());
